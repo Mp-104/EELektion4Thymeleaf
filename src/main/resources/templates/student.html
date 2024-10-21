@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>student page</title>
+
+</head>
+<body>
+    <h1>Welcome to student page</h1>
+
+    <a th:href="@{/user}">Navigate to user</a>
+
+    <p th:text="${student.name}">Showcase Object</p>
+
+    <div th:object="${student}" >
+        <p th:text="*{name}"></p>
+        <p th:text="*{email}"></p>
+    </div>
+
+    <ul>
+        <li th:each="singlestudent: ${student}">
+
+            <p th:text="${singlestudent.name}"></p>
+
+        </li>
+    </ul>
+</body>
+</html>

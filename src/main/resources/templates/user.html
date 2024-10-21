@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>User page</title>
+</head>
+<body>
+    <h1>Welcome to user page</h1>
+    <p>Do some for each stuff here</p>
+
+    <a th:href="@{/student}">Navigate to student</a>
+    <a href="@{/student}">Navigate to student2</a>
+    <a href="/student">Navigate to student3</a>
+
+    <ul>
+        <li th:each="user : ${users}">
+            <p th:text="${user.username}"></p>
+
+        </li>
+    </ul>
+
+    <table>
+        <tr>
+            <th>Username</th>
+            <th>Password</th>
+
+        </tr>
+
+        <tr th:each="user : ${users}" th:object="${user}">
+            <th th:text="${user.username}"></th>
+            <th th:text="${user.password}"></th>
+            <th th:text="*{username}"></th>
+            <th th:text="*{password}"></th>
+        </tr>
+
+    </table>
+</body>
+</html>
